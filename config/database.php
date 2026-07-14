@@ -38,7 +38,10 @@ try {
     http_response_code(500);
     echo json_encode([
         'error' => 'Error de conexión a la base de datos',
-        'detalle' => $e->getMessage() // Agregado para ver exactamente por qué falla
+        'detalle' => $e->getMessage(),
+        'debug_host' => $host,
+        'debug_port' => $port,
+        'debug_dbname' => $dbname
     ]);
     exit;
 }
